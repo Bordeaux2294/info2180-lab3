@@ -1,5 +1,4 @@
 window.onload=function(){
-    
     var moves=[];
     const winCombos=[
         [0, 1, 2],
@@ -25,35 +24,32 @@ window.onload=function(){
                 if (board[i].innerHTML==""){
                     if (moves.length == 0 || (moves.length % 2) == 0){
                         e.target.textContent = "O";
-                        e.target.classList.add('square', 'O');
+                        e.target.classList.add('square','O');
                         moves.push("O");
                     }else if ((moves.length % 2) > 0){
                         e.target.textContent = "X";
-                        e.target.classList.add('square', 'X');
+                        e.target.classList.add('square','X');
                         moves.push("X");   
                 }
                 }
             });
             board[i].addEventListener('mouseover', function(e){
-                e.target.className += " hover";
+                e.target.classList.add("hover");
             });
             board[i].addEventListener('mouseout', function(e){
                 e.target.classList.remove("hover");
             });
-    
         };
 
     }
 
     function newGame(){
-
+        document.querySelector(".btn").addEventListener("click", layout);
     }
 
     function checkWinCombos(){
-
-
     }
-
+   
     layout();
     newGame();
     checkWinCombos();
